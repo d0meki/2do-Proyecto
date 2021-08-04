@@ -56,7 +56,6 @@ public class Prim {
         String s= "Algoritmo de Prim \n";
         for (int i = 0; i < this.grafoAux.cantidadDeVertices(); i++) {
             s = s +"|"+ i + "|-> " + this.grafoAux.listaDeAdyacencia.get(i)  + "\n";
-            //adyacentesDeVertice(i)
         }
         return s;
     }
