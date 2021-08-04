@@ -13,6 +13,7 @@ import java.util.List;
  * @author user
  */
 public class Prim {
+    public static final double INF = 999999.00;
     private GrafoPesado grafoAux;
     private GrafoPesado grafoOriginal;
     private UtilsRecorrido controlMarcado;
@@ -26,7 +27,7 @@ public class Prim {
     public void insertarVertices(){  
         int verticeOrigen = 0;
         int verticeDestino = 0;
-        double menorPeso = 999999;
+        double menorPeso = INF;
         this.controlMarcado.marcarVertice(0);
         do{
             for (int i = 0; i < this.grafoAux.cantidadDeVertices(); i++) {
@@ -46,7 +47,7 @@ public class Prim {
             this.grafoAux.insertarArista(verticeOrigen, verticeDestino, menorPeso);
             this.controlMarcado.marcarVertice(verticeOrigen);
             this.controlMarcado.marcarVertice(verticeDestino);
-            menorPeso = 999999;
+            menorPeso = INF;
         }while(!this.controlMarcado.estanTodosMarcados());            
     }
 
