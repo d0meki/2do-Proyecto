@@ -31,22 +31,22 @@ public class Prim {
         do{
             for (int i = 0; i < this.grafoAux.cantidadDeVertices(); i++) {
                 if (this.controlMarcado.estaMarcado(i)) {
-                        List<AdyacenteConPeso> adyacenteVerticeEnTurno = this.grafoOriginal.listaDeAdyacencia.get(i);
+                    List<AdyacenteConPeso> adyacenteVerticeEnTurno = this.grafoOriginal.listaDeAdyacencia.get(i);
                     for (AdyacenteConPeso ady: adyacenteVerticeEnTurno) {
                         if (ady.getPeso() < menorPeso) {
-                                if (!(this.controlMarcado.estaMarcado(ady.getIndiceVertice()))) {
-                                    menorPeso = ady.getPeso();
-                                    verticeOrigen = i;
-                                    verticeDestino = ady.getIndiceVertice();
-                                }
+                            if (!(this.controlMarcado.estaMarcado(ady.getIndiceVertice()))) {
+                                menorPeso = ady.getPeso();
+                                verticeOrigen = i;
+                                verticeDestino = ady.getIndiceVertice();
+                            }
                         }
                     }
                 }
             }
-        this.grafoAux.insertarArista(verticeOrigen, verticeDestino, menorPeso);
-        this.controlMarcado.marcarVertice(verticeOrigen);
-        this.controlMarcado.marcarVertice(verticeDestino);
-        menorPeso = 999999;
+            this.grafoAux.insertarArista(verticeOrigen, verticeDestino, menorPeso);
+            this.controlMarcado.marcarVertice(verticeOrigen);
+            this.controlMarcado.marcarVertice(verticeDestino);
+            menorPeso = 999999;
         }while(!this.controlMarcado.estanTodosMarcados());            
     }
 
